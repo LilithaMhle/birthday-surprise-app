@@ -1,0 +1,74 @@
+<ion-content class="page-bg memory-content">
+  <div class="aurora-glow"></div>
+
+  <div class="floating-particles">
+    <span class="particle">✦</span>
+    <span class="particle">✧</span>
+    <span class="particle">·</span>
+    <span class="particle">♡</span>
+    <span class="particle">⋆</span>
+    <span class="particle">˚</span>
+    <span class="particle">✦</span>
+    <span class="particle">·</span>
+    <span class="particle">♡</span>
+    <span class="particle">⋆</span>
+  </div>
+
+  <!-- Music bar -->
+  <div class="music-bar">
+    <div class="music-waves">
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span>
+    </div>
+    <span class="music-label">♪ Happy Birthday ♪</span>
+    <div class="music-waves">
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span>
+    </div>
+  </div>
+
+  <div class="memory-wrapper">
+    <p class="label-upper memory-top-label">open each one ✨</p>
+
+    <!-- Scrollable cards -->
+    <div class="cards-scroll">
+      <div
+        *ngFor="let card of cards; let i = index"
+        class="mem-card glass-card"
+        [class.revealed]="card.revealed"
+        (click)="revealCard(i)"
+      >
+        <div class="card-header">
+          <span class="card-icon">{{ card.icon }}</span>
+          <span class="card-title">{{ card.title }}</span>
+        </div>
+
+        <p class="card-hint" *ngIf="!card.revealed">tap to reveal</p>
+
+        <div class="card-body" [class.open]="card.revealed">
+          <div class="card-scrollable">
+            <p class="card-text" [class.placeholder]="card.placeholder">
+              {{ card.text }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step nav -->
+    <div class="step-nav">
+      <ion-button class="pill-btn-ghost" fill="clear" routerLink="/greeting">← back</ion-button>
+      <ion-button class="pill-btn" routerLink="/photo-rain">our memories →</ion-button>
+    </div>
+
+    <div class="nav-dots">
+      <span class="nav-dot"></span>
+      <span class="nav-dot"></span>
+      <span class="nav-dot active"></span>
+      <span class="nav-dot"></span>
+      <span class="nav-dot"></span>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-content class="page-bg" [scrollY]="false">
+  <!-- Deep aurora background layers -->
+  <div class="aurora-glow"></div>
+  <div class="aurora-warm"></div>
+  <div class="film-grain"></div>
+
+  <!-- Falling circular baby photo bubbles -->
+  <div class="rain-container">
+    <div
+      *ngFor="let bubble of bubbles; let i = index"
+      class="photo-bubble"
+      [style.width.px]="bubble.size"
+      [style.height.px]="bubble.size"
+      [style.left.%]="bubble.left"
+      [style.animation-duration]="bubble.duration + 's'"
+      [style.animation-delay]="bubble.delay + 's'"
+      [style.--rotate-start]="bubble.rotateStart + 'deg'"
+      [style.--rotate-end]="bubble.rotateEnd + 'deg'"
+      [style.--max-opacity]="bubble.opacity"
+    >
+      <!-- Shimmer highlight overlay -->
+      <div class="bubble-shimmer"></div>
+
+      <!-- Baby photo — replace src with real photo paths -->
+      <img
+        [src]="bubble.src"
+        [alt]="'Baby photo ' + (i + 1)"
+        class="bubble-img"
+        (error)="onImgError($event, i)"
+      />
+    </div>
+  </div>
+
+  <!-- Bottom overlay text -->
+  <div class="rain-overlay-text">
+    <p class="rain-title">look how far you've come</p>
+    <p class="label-upper rain-sub">happy birthday</p>
+  </div>
+
+  <!-- Continue button (floating bottom right) -->
+  <ion-button class="pill-btn continue-float" routerLink="/final">
+    continue →
+  </ion-button>
+
+  <!-- Nav dots -->
+  <div class="nav-dots rain-dots">
+    <span class="nav-dot"></span>
+    <span class="nav-dot"></span>
+    <span class="nav-dot"></span>
+    <span class="nav-dot active"></span>
+    <span class="nav-dot"></span>
+  </div>
+</ion-content>

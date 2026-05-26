@@ -1,0 +1,3 @@
+// Placeholder images for baby photos.
+// Replace these with real baby photos for the Photo Rain screen.
+// Example: photo1.jpg, photo2.jpg, ...

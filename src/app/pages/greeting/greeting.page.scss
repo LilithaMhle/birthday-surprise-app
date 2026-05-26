@@ -1,0 +1,104 @@
+.greeting-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px 20px;
+  z-index: 10;
+  gap: 0;
+}
+
+.greeting-label {
+  margin-bottom: 16px;
+}
+
+.greeting-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 36px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cake-emoji {
+  font-size: 46px;
+  display: block;
+  margin-bottom: 14px;
+  animation: cakePop 1.8s ease-in-out infinite;
+}
+
+@keyframes cakePop {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.08); }
+}
+
+.greeting-title {
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+/* Music bar */
+.music-bar {
+  position: absolute;
+  top: 22px;
+  left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.music-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(255, 200, 220, 0.45);
+}
+
+.music-waves {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.wave {
+  display: inline-block;
+  width: 2px;
+  border-radius: 2px;
+  background: rgba(255, 180, 210, 0.45);
+  animation: waveAnim 0.9s ease-in-out infinite;
+}
+
+.wave:nth-child(1) { height: 7px;  animation-delay: 0s;    }
+.wave:nth-child(2) { height: 13px; animation-delay: 0.15s; }
+.wave:nth-child(3) { height: 9px;  animation-delay: 0.3s;  }
+.wave:nth-child(4) { height: 15px; animation-delay: 0.1s;  }
+.wave:nth-child(5) { height: 7px;  animation-delay: 0.25s; }
+
+@keyframes waveAnim {
+  0%, 100% { transform: scaleY(0.5); }
+  50%       { transform: scaleY(1); }
+}
+
+/* Navigation */
+.step-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.step-nav ion-button {
+  flex: 1;
+}
+
+.nav-dots {
+  margin-top: 16px;
+}

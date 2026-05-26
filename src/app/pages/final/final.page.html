@@ -1,0 +1,84 @@
+<ion-content class="page-bg" [scrollY]="false">
+  <div class="aurora-glow"></div>
+  <div class="final-center-glow"></div>
+
+  <!-- Confetti burst -->
+  <div class="confetti-layer" *ngIf="confettiVisible">
+    <div
+      *ngFor="let piece of confettiPieces; let i = index"
+      class="confetti-piece"
+      [style.left.%]="piece.left"
+      [style.background]="piece.color"
+      [style.animation-delay]="piece.delay + 's'"
+      [style.animation-duration]="piece.duration + 's'"
+      [style.width.px]="piece.size"
+      [style.height.px]="piece.size"
+      [style.border-radius.px]="piece.round ? piece.size / 2 : 2"
+    ></div>
+  </div>
+
+  <!-- Floating particles -->
+  <div class="floating-particles">
+    <span class="particle">✦</span>
+    <span class="particle">✧</span>
+    <span class="particle">·</span>
+    <span class="particle">♡</span>
+    <span class="particle">⋆</span>
+    <span class="particle">˚</span>
+    <span class="particle">✦</span>
+    <span class="particle">·</span>
+    <span class="particle">♡</span>
+    <span class="particle">⋆</span>
+  </div>
+
+  <!-- Music bar -->
+  <div class="music-bar">
+    <div class="music-waves">
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span>
+    </div>
+    <span class="music-label">♪ Happy Birthday ♪</span>
+    <div class="music-waves">
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span><span class="wave"></span>
+      <span class="wave"></span>
+    </div>
+  </div>
+
+  <div class="final-wrapper">
+    <div class="glass-card final-card">
+      <!-- Beating heart -->
+      <div class="heart-beat">♥️</div>
+
+      <h1 class="script-heading final-title">
+        Thank you<br>for existing
+      </h1>
+
+      <div class="divider"></div>
+
+      <p class="body-italic final-body">
+        The world is genuinely a better, warmer, more beautiful place
+        because you are in it. Every day you exist is a gift —
+        especially to me.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="label-upper final-small">made with every bit of love ❤️</p>
+    </div>
+
+    <!-- Replay button -->
+    <ion-button class="pill-btn replay-btn" (click)="replay()">
+      ✨ Replay experience
+    </ion-button>
+
+    <div class="nav-dots final-dots">
+      <span class="nav-dot"></span>
+      <span class="nav-dot"></span>
+      <span class="nav-dot"></span>
+      <span class="nav-dot"></span>
+      <span class="nav-dot active"></span>
+    </div>
+  </div>
+</ion-content>

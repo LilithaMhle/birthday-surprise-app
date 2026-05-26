@@ -1,0 +1,245 @@
+/* Core Ionic CSS */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* ─── RESET ─── */
+* { box-sizing: border-box; }
+
+ion-app,
+ion-router-outlet,
+ion-content,
+.ion-page {
+  background: transparent !important;
+  --background: transparent !important;
+}
+
+/* ─── BASE ─── */
+body, html {
+  font-family: 'Inter', sans-serif;
+  background: #120818 !important;
+  color: rgba(255, 200, 120, 0.88);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ─── SHARED PAGE BACKGROUND ─── */
+.page-bg {
+  --background: transparent;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.page-bg::part(scroll) {
+  background: linear-gradient(170deg, #1c0f2e 0%, #2a1040 40%, #1a0c28 70%, #120818 100%) !important;
+  min-height: 100vh;
+}
+
+/* ─── AURORA GLOW ─── */
+.aurora-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 200% 60% at 50% -10%, rgba(180, 100, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 120% 40% at 80% 30%, rgba(255, 100, 180, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 50% at 20% 70%, rgba(255, 180, 80, 0.08) 0%, transparent 50%);
+  animation: auroraShift 8s ease-in-out infinite alternate;
+}
+
+@keyframes auroraShift {
+  from { opacity: 0.7; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.05); }
+}
+
+/* ─── FLOATING PARTICLES ─── */
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  font-size: 16px;
+  color: rgba(255, 180, 220, 0.55);
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+
+.particle:nth-child(1)  { left: 8%;  top: 90%; font-size: 12px; animation-duration: 11s; animation-delay: 0s;   color: rgba(255,180,220,0.6); }
+.particle:nth-child(2)  { left: 18%; top: 88%; font-size: 18px; animation-duration: 14s; animation-delay: 1.5s; color: rgba(220,180,255,0.5); }
+.particle:nth-child(3)  { left: 30%; top: 92%; font-size: 10px; animation-duration: 9s;  animation-delay: 3s;   color: rgba(255,220,160,0.55); }
+.particle:nth-child(4)  { left: 45%; top: 95%; font-size: 20px; animation-duration: 16s; animation-delay: 0.5s; color: rgba(255,180,220,0.4); }
+.particle:nth-child(5)  { left: 60%; top: 89%; font-size: 13px; animation-duration: 12s; animation-delay: 2s;   color: rgba(255,255,255,0.4); }
+.particle:nth-child(6)  { left: 72%; top: 93%; font-size: 16px; animation-duration: 10s; animation-delay: 5s;   color: rgba(255,180,220,0.5); }
+.particle:nth-child(7)  { left: 85%; top: 91%; font-size: 11px; animation-duration: 13s; animation-delay: 4s;   color: rgba(220,180,255,0.6); }
+.particle:nth-child(8)  { left: 52%; top: 97%; font-size: 15px; animation-duration: 15s; animation-delay: 7s;   color: rgba(255,220,160,0.45); }
+.particle:nth-child(9)  { left: 25%; top: 96%; font-size: 9px;  animation-duration: 8s;  animation-delay: 6s;   color: rgba(255,180,220,0.65); }
+.particle:nth-child(10) { left: 92%; top: 94%; font-size: 17px; animation-duration: 11s; animation-delay: 9s;   color: rgba(255,255,255,0.35); }
+
+@keyframes floatUp {
+  0%   { transform: translateY(0)      rotate(0deg)   scale(0.8); opacity: 0; }
+  8%   { opacity: 0.9; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(-95vh)  rotate(360deg) scale(1.1); opacity: 0; }
+}
+
+/* ─── GLASSMORPHISM CARD ─── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ─── DIVIDER ─── */
+.divider {
+  width: 44px;
+  height: 2px;
+  border-radius: 2px;
+  margin: 14px auto;
+  background: linear-gradient(90deg, transparent, rgba(255, 180, 200, 0.7), transparent);
+}
+
+/* ─── TYPOGRAPHY ─── */
+.script-heading {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: rgba(255, 230, 210, 0.95);
+  text-align: center;
+  line-height: 1.25;
+}
+
+.body-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: rgba(255, 220, 235, 0.82);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.label-upper {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 200, 120, 0.65);
+  text-align: center;
+}
+
+/* ─── PILL BUTTONS ─── */
+.pill-btn {
+  --background: linear-gradient(135deg, rgba(255,100,160,0.22), rgba(180,80,255,0.22));
+  --background-activated: linear-gradient(135deg, rgba(255,100,160,0.35), rgba(180,80,255,0.35));
+  --border-radius: 50px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: rgba(255, 150, 200, 0.45);
+  --color: rgba(255, 220, 235, 0.92);
+  --box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  height: 44px;
+  backdrop-filter: blur(10px);
+}
+
+.pill-btn-ghost {
+  --background: transparent;
+  --background-activated: rgba(255,255,255,0.06);
+  --border-radius: 50px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: rgba(255, 180, 200, 0.25);
+  --color: rgba(255, 200, 220, 0.65);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  height: 44px;
+}
+
+/* ─── NAV DOTS ─── */
+.nav-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.nav-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 180, 220, 0.25);
+  transition: all 0.35s ease;
+  flex-shrink: 0;
+}
+
+.nav-dot.active {
+  width: 22px;
+  border-radius: 4px;
+  background: rgba(255, 180, 220, 0.75);
+  border-color: rgba(255, 180, 220, 0.75);
+}
+
+/* ─── MUTE TOGGLE ─── */
+.mute-btn {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 999;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 180, 220, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background 0.2s;
+  color: rgba(255, 200, 220, 0.8);
+  --background: transparent;
+  --border-radius: 50%;
+  --color: rgba(255,200,220,0.8);
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+/* ─── SCROLLBAR HIDE ─── */
+::-webkit-scrollbar { width: 0 !important; background: transparent !important; }
+* { scrollbar-width: none; }
+
+/* ─── PAGE TRANSITION ─── */
+.ion-page {
+  animation: pageFadeIn 0.5s ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
