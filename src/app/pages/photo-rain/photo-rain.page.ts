@@ -32,12 +32,8 @@ export class PhotoRainPage implements OnInit {
    * The app will cycle through them across the 22 falling bubbles.
    */
   private photoFiles: string[] = [
-    'baby1.jpg',
-    'baby2.jpg',
-    'baby3.jpg',
-    'baby4.jpg',
-    'baby5.jpg',
-    'baby6.jpg',
+    'https://res.cloudinary.com/dfvudlvl7/image/upload/v1779879815/WhatsApp_Image_2026-05-27_at_11.30.04_l4d2h7.jpg',
+    'https://res.cloudinary.com/dfvudlvl7/image/upload/v1779879866/WhatsApp_Image_2026-05-27_at_11.30.03_sz8cy0.jpg',
   ];
 
   ngOnInit() {
@@ -50,7 +46,7 @@ export class PhotoRainPage implements OnInit {
       const filename = this.photoFiles[i % this.photoFiles.length];
       const size = this.rand(52, 98);
       this.bubbles.push({
-        src: `assets/photos/${filename}`,
+        src: filename,
         size,
         left: this.rand(2, 87),
         duration: this.rand(14, 24),

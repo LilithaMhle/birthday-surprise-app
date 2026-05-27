@@ -8,22 +8,27 @@ export class AudioService {
 
   /** Start playing birthday voice audio with gentle fade-in */
   play() {
-    if (this.sound) {
-      this.sound.play();
+    // If already playing, do nothing — don't restart
+    if (this.sound && this.sound.playing()) {
       return;
     }
 
+    // If sound exists but is paused, just resume it
+    if (this.sound) {
+      this.sound.play?.();
+      return;
+    }
+
+    // First time — create and start
     this.sound = new Howl({
       src: ['assets/audio/birthday-voice.mp3'],
       loop: true,
-      volume: 0,         // start silent, fade in
+      volume: 0,
       autoplay: false,
     });
 
-    this.sound.play();
-
-    // Fade in over 2.5 seconds to volume 0.3
-    this.sound.fade(0, 0.3, 2500);
+    this.sound?.play?.();
+    this.sound?.fade?.(0, 0.3, 2500);
   }
 
   /** Mute or unmute */
